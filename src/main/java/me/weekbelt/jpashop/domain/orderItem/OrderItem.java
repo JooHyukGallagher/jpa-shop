@@ -36,4 +36,32 @@ public class OrderItem {
     public void setOrder(Order order) {
         this.order = order;
     }
+
+    public void setItem(Item item) {
+        this.item = item;
+    }
+
+    // 생성 메서드 //
+    public static OrderItem createOrderItem(Item item, int orderPrice, int count){
+        OrderItem orderItem= OrderItem.builder()
+                .orderPrice(orderPrice)
+                .count(count)
+                .build();
+        orderItem.setItem(item);
+
+        item.removeStock(count);
+        return orderItem;
+    }
+
+    // == 비즈니스 로직 == //
+    /** 주문 취소 */
+    public void cancel(){
+        getItem().addStock(count);
+    }
+
+    // == 조회 로직 == //
+    /** 주문상품 전체 가격 조회 */
+    public int getTotalPrice() {
+        return getOrderPrice() * getCount();
+    }
 }
