@@ -1,8 +1,11 @@
 package me.weekbelt.jpashop.web;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
+
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
 @Getter @Setter
 public class BookForm {
 

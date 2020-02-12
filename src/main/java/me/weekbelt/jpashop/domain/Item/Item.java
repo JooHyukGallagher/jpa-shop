@@ -36,6 +36,9 @@ public abstract class Item {
     }
 
     // == 비즈니스 로직 == //
+    public void setId(Long id){
+        this.id = id;
+    }
     public void addStock(int quantity){
         this.stockQuantity += quantity;
     }
