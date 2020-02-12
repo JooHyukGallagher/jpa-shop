@@ -2,11 +2,15 @@ package me.weekbelt.jpashop.web;
 
 import lombok.RequiredArgsConstructor;
 import me.weekbelt.jpashop.domain.Item.Book;
+import me.weekbelt.jpashop.domain.Item.Item;
 import me.weekbelt.jpashop.service.ItemService;
+import org.dom4j.rule.Mode;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+
+import java.util.List;
 
 @RequiredArgsConstructor
 @Controller
@@ -32,5 +36,12 @@ public class ItemController {
 
         itemService.saveItem(book);
         return "redirect:/items";
+    }
+
+    @GetMapping("/items")
+    public String list(Model model) {
+        List<Item> items = itemService.findItems();
+        model.addAttribute("items", items);
+        return "/items/itemList";
     }
 }
