@@ -1,9 +1,6 @@
 package me.weekbelt.jpashop.domain.Item;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import me.weekbelt.jpashop.domain.category.Category;
 import me.weekbelt.jpashop.exception.NotEnoughStockException;
 
@@ -11,7 +8,7 @@ import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
-@Getter
+@Getter @Setter
 @NoArgsConstructor
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name = "dtype")
