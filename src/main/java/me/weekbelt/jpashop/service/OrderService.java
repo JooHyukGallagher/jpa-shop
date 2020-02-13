@@ -3,6 +3,7 @@ package me.weekbelt.jpashop.service;
 import lombok.RequiredArgsConstructor;
 import me.weekbelt.jpashop.domain.Delivery.Delivery;
 import me.weekbelt.jpashop.domain.Item.Item;
+import me.weekbelt.jpashop.domain.OrderSearch;
 import me.weekbelt.jpashop.domain.member.Member;
 import me.weekbelt.jpashop.domain.member.MemberRepository;
 import me.weekbelt.jpashop.domain.order.Order;
@@ -57,7 +58,7 @@ public class OrderService {
     }
 
     /** 주문 검색 */
-//    public List<Order> findOrders(OrderSearch orderSearch){
-//        return orderRepository.findAll(orderSearch);
-//    }
+    public List<Order> findOrders(OrderSearch orderSearch){
+        return orderRepository.findAll(orderSearch);
+    }
 }

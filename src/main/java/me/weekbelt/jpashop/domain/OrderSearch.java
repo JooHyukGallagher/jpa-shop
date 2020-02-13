@@ -1,9 +1,10 @@
 package me.weekbelt.jpashop.domain;
 
 import lombok.Getter;
+import lombok.Setter;
 import me.weekbelt.jpashop.domain.order.OrderStatus;
 
-@Getter
+@Getter @Setter
 public class OrderSearch {
 
     private String memberName;
