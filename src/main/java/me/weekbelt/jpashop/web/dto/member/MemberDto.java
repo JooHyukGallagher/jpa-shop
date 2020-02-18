@@ -1,13 +1,11 @@
-package me.weekbelt.jpashop.web.dto;
+package me.weekbelt.jpashop.web.dto.member;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.util.List;
-
 @AllArgsConstructor
 @Getter @Setter
-public class Result {
-    private List<MemberDto> data;
+public class MemberDto {
+    private String name;
 }

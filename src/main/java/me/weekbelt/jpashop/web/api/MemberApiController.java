@@ -3,7 +3,7 @@ package me.weekbelt.jpashop.web.api;
 import lombok.RequiredArgsConstructor;
 import me.weekbelt.jpashop.domain.member.Member;
 import me.weekbelt.jpashop.service.MemberService;
-import me.weekbelt.jpashop.web.dto.*;
+import me.weekbelt.jpashop.web.dto.member.*;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;

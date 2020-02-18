@@ -1,4 +1,4 @@
-package me.weekbelt.jpashop.web.dto;
+package me.weekbelt.jpashop.web.dto.member;
 
 import lombok.Getter;
 import lombok.Setter;

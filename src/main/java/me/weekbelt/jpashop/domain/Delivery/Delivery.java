@@ -3,13 +3,14 @@ package me.weekbelt.jpashop.domain.Delivery;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 import me.weekbelt.jpashop.domain.Address;
 import me.weekbelt.jpashop.domain.order.Order;
 
 import javax.persistence.*;
 
 @NoArgsConstructor
-@Getter
+@Getter @Setter
 @Entity
 public class Delivery {
 
