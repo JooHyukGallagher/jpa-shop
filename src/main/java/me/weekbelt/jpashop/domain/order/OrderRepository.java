@@ -23,6 +23,14 @@ public class OrderRepository {
         return em.find(Order.class, id);
     }
 
+    public List<Order> findAllWithMemberDelivery() {
+        return em.createQuery(
+          "SELECT o FROM Order o" +
+                  " JOIN FETCH o.member m" +
+                  " JOIN FETCH o.delivery d", Order.class
+        ).getResultList();
+    }
+
     public List<Order> findAll(OrderSearch orderSearch){
         //language=JPAQL
         String jpql = "select o From Order o join o.member m";
