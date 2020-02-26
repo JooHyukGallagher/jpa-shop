@@ -9,6 +9,7 @@ import me.weekbelt.jpashop.web.dto.order.OrderDto;
 import me.weekbelt.jpashop.web.dto.order.OrderSimpleQueryDto;
 import me.weekbelt.jpashop.web.dto.order.SimpleOrderDto;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -50,6 +51,14 @@ public class OrderApiController {
         List<Order> orders = orderRepository.findAllWithItem();
         List<OrderDto> result = orders.stream().map(OrderDto::new)
                 .collect(toList());
+        return result;
+    }
+
+    @GetMapping("/api/v3.1/orders")
+    public List<OrderDto> ordersV3_page(@RequestParam(defaultValue = "0") int offset,
+                                        @RequestParam(defaultValue = "100") int limit){
+        List<Order> orders = orderRepository.findAllWithMemberDelivery(offset, limit);
+        List<OrderDto> result = orders.stream().map(OrderDto::new).collect(toList());
         return result;
     }
 }
