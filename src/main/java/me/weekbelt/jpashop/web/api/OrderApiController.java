@@ -3,9 +3,11 @@ package me.weekbelt.jpashop.web.api;
 import lombok.RequiredArgsConstructor;
 import me.weekbelt.jpashop.domain.OrderSearch;
 import me.weekbelt.jpashop.domain.order.Order;
+import me.weekbelt.jpashop.domain.order.OrderQueryRepository;
 import me.weekbelt.jpashop.domain.order.OrderRepository;
 import me.weekbelt.jpashop.domain.order.OrderSimpleQueryRepository;
 import me.weekbelt.jpashop.web.dto.order.OrderDto;
+import me.weekbelt.jpashop.web.dto.order.OrderQueryDto;
 import me.weekbelt.jpashop.web.dto.order.OrderSimpleQueryDto;
 import me.weekbelt.jpashop.web.dto.order.SimpleOrderDto;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -23,6 +25,7 @@ public class OrderApiController {
 
     private final OrderRepository orderRepository;
     private final OrderSimpleQueryRepository orderSimpleQueryRepository;
+    private final OrderQueryRepository orderQueryRepository;
 
     @GetMapping("/api/v3/simple-orders")
     public List<SimpleOrderDto> simpleOrdersV3() {
@@ -60,5 +63,10 @@ public class OrderApiController {
         List<Order> orders = orderRepository.findAllWithMemberDelivery(offset, limit);
         List<OrderDto> result = orders.stream().map(OrderDto::new).collect(toList());
         return result;
+    }
+
+    @GetMapping("/api/v4/orders")
+    public List<OrderQueryDto> ordersV4() {
+        return orderQueryRepository.findOrderQueryDtos();
     }
 }

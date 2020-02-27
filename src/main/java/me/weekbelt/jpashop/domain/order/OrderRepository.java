@@ -85,4 +85,5 @@ public class OrderRepository {
                         " JOIN FETCH oi.item i", Order.class)
                 .getResultList();
     }
+
 }
